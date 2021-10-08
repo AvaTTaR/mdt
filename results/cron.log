@@ -1,0 +1,9 @@
+Oct  8 14:18:32 debian-vm-01 cron[6543]: (CRON) INFO (pidfile fd = 3)
+Oct  8 14:18:32 debian-vm-01 cron[6543]: (CRON) INFO (Skipping @reboot jobs -- not system startup)
+Oct  8 14:19:01 debian-vm-01 CRON[6547]: (root) CMD (su -s /bin/sh root -c 'cd /root/wa1/mdt && /usr/bin/git pull origin master')
+Oct  8 14:20:01 debian-vm-01 CRON[6588]: (root) CMD (su -s /bin/sh root -c 'cd /root/wa1/mdt && /usr/bin/git pull origin master')
+Oct  8 14:21:01 debian-vm-01 CRON[6634]: (root) CMD (su -s /bin/sh root -c 'cd /root/wa1/mdt && /usr/bin/git pull origin master')
+Oct  8 14:30:44 debian-vm-01 anacron[6701]: Anacron 2.3 started on 2021-10-08
+Oct  8 14:30:44 debian-vm-01 anacron[6701]: Normal exit (0 jobs run)
+Oct  8 15:34:37 debian-vm-01 anacron[11401]: Anacron 2.3 started on 2021-10-08
+Oct  8 15:34:37 debian-vm-01 anacron[11401]: Normal exit (0 jobs run)
