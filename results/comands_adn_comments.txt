@@ -1,9 +1,39 @@
+#Weakly 1
+
 sudo apt-get install -y git nginx
 git config --global user.name "Ihar Yefimenka"
 git config --global user.email "iharye@playtika.com"
 git clone git@github.com:AvaTTaR/mdt.git
 
 # Add to crontab (crontab -e) * * * * * su -s /bin/sh root -c 'cd /root/wa1/mdt && /usr/bin/git pull origin master' 
+# uncomment cron line in /etc/rsyslog.conf and restart rsyslog service to get cron logs in /var/log/cron.log
+systemctl restart rsyslog
 
-# to configure Git-hook that will run after merging to the master we have to create file post-merg in .git/hooks/  add shebang and commands, and make this file executable.
+# For nginx we have to create a folder and copy repo www dir in to it
+mkdir /var/www/mdt
+cp -r /root/wa1/mdt/www/* /var/www/mdt/
+# In fact I think what we had to do in cronjob is to make exactly this cp from repo to var, and on next step create post-commit webhook to update local repo after changes - it will make more sense.
 
+# Fix config /etc/nginx/sites-enabled/default :
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+
+	root /var/www/mdt/;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+
+}
+
+
+# Restart nginx and making sure it starts on the boot
+systemctl restart nginx
+systemctl enable nginx
