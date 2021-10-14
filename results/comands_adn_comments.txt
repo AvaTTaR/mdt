@@ -13,6 +13,8 @@ systemctl restart rsyslog
 mkdir /var/www/mdt
 cp -r /root/wa1/mdt/www/* /var/www/mdt/
 # In fact I think what we had to do in cronjob is to make exactly this cp from repo to var, and on next step create post-commit webhook to update local repo after changes - it will make more sense.
+# Git-hook file must be executible, so we must provide command
+chmod +x ./.git/hooks/pre-commit
 
 # Fix config /etc/nginx/sites-enabled/default :
 server {
@@ -37,3 +39,4 @@ server {
 # Restart nginx and making sure it starts on the boot
 systemctl restart nginx
 systemctl enable nginx
+#In the end we using git rebase -i to squash all commits in one in interactive mod
