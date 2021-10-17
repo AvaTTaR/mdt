@@ -35,7 +35,6 @@ User jenkins-iharyefimenka created.
 ```
 sudo adduser jenkins --shell /bin/bash
 su jenkins
-mkdir /home/jenkins/jenkins_slave
 mkdir ~/.ssh && cd ~/.ssh
 ssh-keygen -t rsa
 cat id_rsa.pub > ~/.ssh/authorized_keys
