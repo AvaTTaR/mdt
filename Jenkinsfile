@@ -2,6 +2,10 @@ pipeline {
     agent {
         label "Slave"
     }
+    triggers {
+        pollSCM('0 0 * * *')
+        githubPush()
+    }
 
     tools{
         nodejs "nodejs"
