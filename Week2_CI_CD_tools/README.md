@@ -86,9 +86,9 @@ archive result
 
 
 
-**[Check out Jenkinsfile](https://github.com/AvaTTaR/mdt/edit/master/Jenkinsfile "Check out Jenkinsfile")**
+**[Check out Jenkinsfile](https://github.com/AvaTTaR/mdt/blob/master/Jenkinsfile "Check out Jenkinsfile")**
 
-**[Check out Job Log](https://github.com/AvaTTaR/mdt/edit/master/Week2_CI_CD_tools/jenkins_job.log "Check out Job Log")**
+**[Check out Job Log](https://github.com/AvaTTaR/mdt/blob/master/Week2_CI_CD_tools/jenkins_job.log "Check out Job Log")**
 
 
 
@@ -101,7 +101,7 @@ archive result
 
 ##### Enable ‘Poll SCM’ in Job settings
 
-Add triggers `{ pollSCM('0 0 * * *') }` [check out Jenkinsfile](https://github.com/AvaTTaR/mdt/edit/master/Jenkinsfile "check out Jenkinsfile")
+Add triggers `{ pollSCM('0 0 * * *') }` [check out Jenkinsfile](https://github.com/AvaTTaR/mdt/blob/master/Jenkinsfile "check out Jenkinsfile")
 
 ##### GitHub plugin - http(s)://JENKINS_URL/github-webhook/
 
@@ -112,7 +112,7 @@ Select Pull and push events as trigers.
 
 ##### Enable ‘GitHub hook trigger for Git SCM polling’
 
-Add `githubPush()` to triggers section, [check out Jenkinsfile](https://github.com/AvaTTaR/mdt/edit/master/Jenkinsfile "check out Jenkinsfile")
+Add `githubPush()` to triggers section, [check out Jenkinsfile](https://github.com/AvaTTaR/mdt/blob/master/Jenkinsfile "check out Jenkinsfile")
 
 ![](59_buid_view.png)
 
@@ -123,9 +123,9 @@ Add `githubPush()` to triggers section, [check out Jenkinsfile](https://github.c
 
 ### Use Scripted pipeline instead of declarative
 
-**[Check out scripted.Jenkinsfile](https://github.com/AvaTTaR/mdt/edit/master/scripted.Jenkinsfile "Check out scripted.Jenkinsfile")**
+**[Check out scripted.Jenkinsfile](https://github.com/AvaTTaR/mdt/blob/master/scripted.Jenkinsfile "Check out scripted.Jenkinsfile")**
 
-**[Check out Job Log](https://github.com/AvaTTaR/mdt/edit/master/Week2_CI_CD_tools/jenkins_job_scripted.log "Check out Job Log")**
+**[Check out Job Log](https://github.com/AvaTTaR/mdt/blob/master/Week2_CI_CD_tools/jenkins_job_scripted.log "Check out Job Log")**
 ![](11_stage_view_scripted.png)
 
 
@@ -154,7 +154,7 @@ sudo systemctl enable artifactory
 
 
 ### Add new stage for publishing artifacts into Artifactory
-Use "Set me up" to generate link with hashed password to upload using curl or install and configure JFrog Artifactory plugin for Jenkins and use it's module to connect to artifact-repo, I stoped on the second one, **[Check out Jenkinsfile](https://github.com/AvaTTaR/mdt/edit/master/Jenkinsfile "Check out Jenkinsfile")** and **[scripted.Jenkinsfile](https://github.com/AvaTTaR/mdt/edit/master/scripted.Jenkinsfile "scripted.Jenkinsfile")** in stage Deploy.
+Use "Set me up" to generate link with hashed password to upload using curl or install and configure JFrog Artifactory plugin for Jenkins and use it's module to connect to artifact-repo, I stoped on the second one, **[Check out Jenkinsfile](https://github.com/AvaTTaR/mdt/blob/master/Jenkinsfile "Check out Jenkinsfile")** and **[scripted.Jenkinsfile](https://github.com/AvaTTaR/mdt/blob/master/scripted.Jenkinsfile "scripted.Jenkinsfile")** in stage Deploy.
 
 Mark that in the final version I'm using jfrog.io as an artifact-repo. For the begining I tried to use low-perfomance cloud VM and it worked too slow, so I had to switch to jfrog free cloud solution as it works much faster than my instance in the cloud. Anyway, the only difference in our case will be the link and credentials in JFrog plugin configuration.
 ![](12_artifacts.png)
